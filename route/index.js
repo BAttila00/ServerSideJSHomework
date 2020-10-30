@@ -21,9 +21,9 @@ const saveTurazoMW = require('../middleware/turazo/saveTurazoMW');
 module.exports = function (app) {
     const objRepo = {};
 
-app.use('/',
-    checkPassMW(objRepo),
-    renderMW(objRepo, 'index'));
+// app.use('/',
+//     checkPassMW(objRepo),
+//     renderMW(objRepo, 'index'));
 
 app.get('/lostPassword',
     generateNewPasswordMW(objRepo),
@@ -74,7 +74,7 @@ app.get('/route/:athleteID',
     getTurakMW(objRepo),
     renderMW(objRepo, 'turazoUtvonalai'));
 
-app.use('/route/:athleteID/new',
+app.use('/route/:athleteID/new', 
     authMW(objRepo),
     getTurazoMW(objRepo),
     saveTuraMW(objRepo),
@@ -93,5 +93,9 @@ app.get('/route/:athleteID/del/:routeID',
     getTuraMW(objRepo),
     delTuraMW(objRepo),
     renderMW(objRepo, 'turaEditNew'));
+
+app.use('/',
+    checkPassMW(objRepo),
+    renderMW(objRepo, 'index'));
 
 }
