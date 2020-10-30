@@ -40,7 +40,7 @@ app.use('/athletes',
     checkPassMW(objRepo),
     renderMW(objRepo, 'turazok'));
 
-app.get('/routes/:routeID',
+app.get('/routes/:routeID',                     //todo: itt még valami nem stimmel, nem navigál át a  részletező nézetre
     getTuraMW(objRepo),
     renderMW(objRepo, 'turaReszletezo'));
 
