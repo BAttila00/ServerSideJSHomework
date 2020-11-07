@@ -4,7 +4,9 @@
         <div class="row">
             <div class="col-12">
                 <h2>Túrázó módosítás / létrehozás</h2>
-                <form>
+                <form method="POST">
+                    <input type="hidden" name="turazoID"
+                    value="<%= (typeof turazo === 'undefined') ? '' : turazo._id %>">
                     <div class="form-group">
                         <label for="nev">Név</label>
                         <input type="text" class="form-control" id="nev" name="nev" 
@@ -25,7 +27,7 @@
                         <input type="text" class="form-control" id="email" name="email"
                         value="<%= (typeof turazo === 'undefined') ? '' : turazo.email %>">
                     </div>
-                    <a class="btn btn-primary" href="/athletesList">Mentés</a>
+                    <input type="submit" class="btn btn-primary" href="/athletesList" value="Mentés"/>
                     <a class="btn btn-link" href="/athletesList">Mégsem</a>
                 </form>
             </div>
