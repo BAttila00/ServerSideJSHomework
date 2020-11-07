@@ -20,6 +20,6 @@ module.exports = function (objectrepository) {
                 email: 'kléűáuipő@gmial.com'
             }
         ];
-        next();
+        next();     //lehet return next() is helyette, így az alatta lévő sorok nem futnak le
     };
 };
