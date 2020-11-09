@@ -1,0 +1,41 @@
+<%- include('header') -%>
+<%- include('loginMenu') -%>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2>Túra módosítás / létrehozás</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="cim">Cím</label>
+                        <input type="text" class="form-control" id="cim" name="cim">
+                    </div>
+                    <div class="form-group">
+                        <label for="tav">Táv(km)</label>
+                        <input type="text" class="form-control" id="tav" name="tav">
+                    </div>
+                    <div class="form-group">
+                        <p>
+                            <label for="descr">Rövid leírás</label>
+                        </p>
+                        <textarea cols="100" rows="5" id="descr" name="descr"></textarea>
+                        <!-- <input class="form-control" id="tel" name="tel"> -->
+                    </div>
+                    <div class="form-group">
+                        <p>
+                            <label for="longdescr">Hosszabb leírás</label>
+                        </p>
+                        <textarea cols="100" rows="7" id="longdescr" name="longdescr"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <p>
+                            <label for="filename">Útvonal feltöltés (gpx./kml./kmz.)</label>
+                        </p>
+                        <input type="file" id="filename" name="filename">
+                    </div>
+                    <a class="btn btn-primary" href="/route/001">Mentés</a>
+                    <a class="btn btn-link" href="/route/001">Mégsem</a>
+                </form>
+            </div>
+        </div>
+    </div>
+<%- include('footer') -%>

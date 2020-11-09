@@ -8,6 +8,17 @@ const requireOption = require('../requireOption');
 
 module.exports = function (objectrepository) {
     return function (req, res, next) {
+
+        res.locals.turazo =
+            {
+                _id: '001',
+                nev: 'Attila',
+                kor: 22,
+                nem: 'Férfi',
+                email: 'asdghjrtzoppő@gmial.com'
+            };
+
+
         next();
     };
 };
