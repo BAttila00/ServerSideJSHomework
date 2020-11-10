@@ -30,19 +30,19 @@ app.get('/lostPassword',
     savePasswordMW(objRepo),
     renderMW(objRepo, 'elfelejtettJelszo'));
 
-app.use('/routes',
-    getAllUtvonalMW(objRepo),
-    checkPassMW(objRepo),
-    renderMW(objRepo, 'utvonalak'));
-
 app.use('/athletes',
     getTopTurazokMW(objRepo),
     checkPassMW(objRepo),
     renderMW(objRepo, 'turazok'));
 
 app.get('/routes/:routeID',                     //todo: itt még valami nem stimmel, nem navigál át a  részletező nézetre
-    getTuraMW(objRepo),
+    getTuraMW(objRepo),                         //mostmár jó -> app.use('/routes',.... részt le kellett hozni alá
     renderMW(objRepo, 'turaReszletezo'));
+
+app.use('/routes',
+    getAllUtvonalMW(objRepo),
+    checkPassMW(objRepo),
+    renderMW(objRepo, 'utvonalak'));
 
 //bejelentkezes utani lista
 app.get('/athletesList',
@@ -93,6 +93,9 @@ app.get('/route/:athleteID/del/:routeID',
     getTuraMW(objRepo),
     delTuraMW(objRepo),
     renderMW(objRepo, 'turaEditNew'));
+
+app.use('/logout',
+    logoutMW(objRepo));
 
 app.use('/',
     checkPassMW(objRepo),
