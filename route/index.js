@@ -5,6 +5,7 @@ const checkPassMW = require('../middleware/auth/checkPassMW');
 const generateNewPasswordMW = require('../middleware/auth/generateNewPasswordMW');
 const savePasswordMW = require('../middleware/auth/savePasswordMW');
 const renderMW = require('../middleware/renderMW');
+const logoutMW = require('../middleware/auth/logoutMW');
 
 const delTuraMW = require('../middleware/tura/delTuraMW');
 const getTurakMW = require('../middleware/tura/getTurakMW');
