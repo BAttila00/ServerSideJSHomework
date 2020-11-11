@@ -27,6 +27,11 @@
           <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
         </li> -->
       </ul>
+      <div>
+        <% if (typeof error !== 'undefined') { %>
+          <div class="alert alert-danger"><%= error %></div>
+        <% } %>
+      </div>
       <form method="POST" class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="password" id="pass" name="password" placeholder="Jelszó" aria-label="Jelszó">
         <input type="submit" class="btn btn-primary" value="Login"/>
