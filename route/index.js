@@ -19,8 +19,14 @@ const getTurazoMW = require('../middleware/turazo/getTurazoMW');
 const getTopTurazokMW = require('../middleware/turazo/getTopTurazokMW');
 const saveTurazoMW = require('../middleware/turazo/saveTurazoMW');
 
+const TuraModel = require('../models/tura');
+const TurazoModel = require('../models/turazo');
+
 module.exports = function (app) {
-    const objRepo = {};
+    const objRepo = {
+        TuraModel: TuraModel,
+        TurazoModel: TurazoModel
+    };
 
 // app.use('/',
 //     checkPassMW(objRepo),
