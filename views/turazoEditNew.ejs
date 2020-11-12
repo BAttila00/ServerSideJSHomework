@@ -6,6 +6,7 @@
                 <h2>Túrázó módosítás / létrehozás</h2>
                 <form method="POST">
                     <!-- erre azért van szükség h módosítás felküldésénél tudjuk h melyik túrázót módosítottuk -->
+                    <!-- de lehet h mégsincs rá szükség, mert ugyanazt a túrázót módosítjuk amit getMW-ben lekérünk, ugyan azt mentjük el és a mongodb megoldja magának az id azonosítást -->
                     <input type="hidden" name="turazoID"
                     value="<%= (typeof turazo === 'undefined') ? '' : turazo._id %>">
                     <div class="form-group">
