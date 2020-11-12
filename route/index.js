@@ -5,6 +5,7 @@ const checkPassMW = require('../middleware/auth/checkPassMW');
 const generateNewPasswordMW = require('../middleware/auth/generateNewPasswordMW');
 const savePasswordMW = require('../middleware/auth/savePasswordMW');
 const renderMW = require('../middleware/renderMW');
+const logoutMW = require('../middleware/auth/logoutMW');
 
 const delTuraMW = require('../middleware/tura/delTuraMW');
 const getTurakMW = require('../middleware/tura/getTurakMW');
@@ -18,8 +19,14 @@ const getTurazoMW = require('../middleware/turazo/getTurazoMW');
 const getTopTurazokMW = require('../middleware/turazo/getTopTurazokMW');
 const saveTurazoMW = require('../middleware/turazo/saveTurazoMW');
 
+const TuraModel = require('../models/tura');
+const TurazoModel = require('../models/turazo');
+
 module.exports = function (app) {
-    const objRepo = {};
+    const objRepo = {
+        TuraModel: TuraModel,
+        TurazoModel: TurazoModel
+    };
 
 // app.use('/',
 //     checkPassMW(objRepo),
@@ -30,19 +37,19 @@ app.get('/lostPassword',
     savePasswordMW(objRepo),
     renderMW(objRepo, 'elfelejtettJelszo'));
 
-app.use('/routes',
-    getAllUtvonalMW(objRepo),
-    checkPassMW(objRepo),
-    renderMW(objRepo, 'utvonalak'));
-
 app.use('/athletes',
     getTopTurazokMW(objRepo),
     checkPassMW(objRepo),
     renderMW(objRepo, 'turazok'));
 
 app.get('/routes/:routeID',                     //todo: itt még valami nem stimmel, nem navigál át a  részletező nézetre
-    getTuraMW(objRepo),
+    getTuraMW(objRepo),                         //mostmár jó -> app.use('/routes',.... részt le kellett hozni alá
     renderMW(objRepo, 'turaReszletezo'));
+
+app.use('/routes',
+    getAllUtvonalMW(objRepo),
+    checkPassMW(objRepo),
+    renderMW(objRepo, 'utvonalak'));
 
 //bejelentkezes utani lista
 app.get('/athletesList',
@@ -93,6 +100,9 @@ app.get('/route/:athleteID/del/:routeID',
     getTuraMW(objRepo),
     delTuraMW(objRepo),
     renderMW(objRepo, 'turaEditNew'));
+
+app.use('/logout',
+    logoutMW(objRepo));
 
 app.use('/',
     checkPassMW(objRepo),
