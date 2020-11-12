@@ -5,6 +5,7 @@
             <div class="col-12">
                 <h2>Túrázó módosítás / létrehozás</h2>
                 <form method="POST">
+                    <!-- erre azért van szükség h módosítás felküldésénél tudjuk h melyik túrázót módosítottuk -->
                     <input type="hidden" name="turazoID"
                     value="<%= (typeof turazo === 'undefined') ? '' : turazo._id %>">
                     <div class="form-group">
@@ -15,7 +16,7 @@
                     <div class="form-group">
                         <label for="eletkor">Életkor</label>
                         <input type="text" class="form-control" id="eletkor" name="eletkor"
-                        value="<%= (typeof turazo === 'undefined') ? '' : turazo.kor %>">
+                        value="<%= (typeof turazo === 'undefined') ? '' : turazo.eletkor %>">
                     </div>
                     <div class="form-group">
                         <label for="nem">Nem</label>
