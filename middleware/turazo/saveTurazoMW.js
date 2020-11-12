@@ -4,6 +4,9 @@
 const requireOption = require('../requireOption');
 
 module.exports = function (objectrepository) {
+
+    const TurazoModel = requireOption(objectrepository, 'TurazoModel');
+
     return function (req, res, next) {
 
         if ((typeof req.body.nev === 'undefined') ||
@@ -13,9 +16,24 @@ module.exports = function (objectrepository) {
             return next();
         }
 
-        // TODO: update item, save to db, or create new item
-        console.log(req.body);
-        return res.redirect('/athletesList');
+        if (typeof res.locals.turazo === 'undefined') {     //ez azért kell, mert editnél és új létrehozásánál is ez a MW fut le, csak editnél már van egyed létrehozásnál pedig még nincs
+            res.locals.turazo = new TurazoModel();
+        }
+
+        res.locals.turazo.nev = req.body.nev;           //ezek(req) a turazoEditNew.ejs post küldéséből jönnek föl
+        res.locals.turazo.eletkor = req.body.eletkor;
+        res.locals.turazo.nem = req.body.nem;
+        res.locals.turazo.email = req.body.email;
+
+        res.locals.turazo.save(err => {
+            if (err) {
+                return next(err);
+            }
+
+            console.log(req.body);
+            return res.redirect('/athletesList');
+        });
+
 
     };
 };

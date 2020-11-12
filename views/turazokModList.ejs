@@ -28,7 +28,7 @@
                             <%= turazo.nev %>
                     </td>
                     <td>
-                            <%= turazo.kor %>
+                            <%= turazo.eletkor %>
                     </td>
                     <td>
                             <%= turazo.nem %>
@@ -37,10 +37,10 @@
                             <%= turazo.email %>
                     </td>
                     <td style="width:30px;white-space: nowrap">
-                        <a href="/route/001" class="btn btn-sm btn-success">Túrái</a>
+                        <a href="/route/<%= turazo._id %>" class="btn btn-sm btn-success">Túrái</a>
                         <a href="/athletesList/edit/<%= turazo._id %>" class="btn btn-sm btn-primary"><i class="far fa-edit"></i></a>
                         <!-- <a href="/athletesList/edit/001" class="btn btn-sm btn-primary"><i class="far fa-edit"></i></a> -->
-                        <a href="#" class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i></a>
+                        <a href="/athletesList/del/<%= turazo._id %>" class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i></a>
                     </td>
                 </tr>
                 <% }); %>

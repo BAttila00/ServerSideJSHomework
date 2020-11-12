@@ -7,18 +7,31 @@
 const requireOption = require('../requireOption');
 
 module.exports = function (objectrepository) {
+
+    const TurazoModel = requireOption(objectrepository, 'TurazoModel');
+
     return function (req, res, next) {
 
-        res.locals.turazo =
-            {
-                _id: '001',
-                nev: 'Attila',
-                kor: 22,
-                nem: 'Férfi',
-                email: 'asdghjrtzoppő@gmial.com'
-            };
+        TurazoModel.findOne({ _id: req.params.athleteID },      //athleteID a route index.js-ből jön
+            (err, turazo) => {
+                if (err || !turazo) {
+                    return next(err);
+                }
+
+                res.locals.turazo = turazo;
+                return next();
+            });
+
+        // res.locals.turazo =
+        //     {
+        //         _id: '001',
+        //         nev: 'Attila',
+        //         kor: 22,
+        //         nem: 'Férfi',
+        //         email: 'asdghjrtzoppő@gmial.com'
+        //     };
 
 
-        next();
+        // next();
     };
 };

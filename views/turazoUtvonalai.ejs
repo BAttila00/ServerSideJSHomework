@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h2>Attila túrái:</h2>
+                <h2><%= turazo.nev %> túrái:</h2>
                 <table class="table table-striped table-bordered">
                     <tr>
                         <th>
@@ -22,29 +22,29 @@
                             &nbsp;
                         </th>
                     </tr>
-                    <tr>
-                        <!-- todo: itt még valami nem stimmel, nem navigál át a  részletező nézetre (nem oda navigál)-->
-                        <td>
-                            <a href="/routes/001">Rám-szakadék</a>
-                        </td>
-                        <td>
-                            15
-                        </td>
-                        <td>
-                            Gyalogtúra
-                        </td>
-                        <td>
-                            Mauris pharetra et ultrices neque ornare aenean euismod elementum nisi.
-                            Imperdiet nulla malesuada pellentesque elit eget gravida cum.
-                            Eget mauris pharetra et ultrices neque ornare aenean euismod.
-                            Egestas egestas fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate.
-                            Non curabitur gravida arcu ac tortor dignissim convallis aenean.
-                        </td>
-                        <td style="width:30px;white-space: nowrap">
-                            <a href="/route/001/edit/001" class="btn btn-sm btn-primary"><i class="far fa-edit"></i></a>
-                            <a href="#" class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i></a>
-                        </td>
-                    </tr>
+
+                    <% turak.forEach(function(tura){ %>
+                        <tr>
+                            <!-- todo: itt még valami nem stimmel, nem navigál át a  részletező nézetre (nem oda navigál)-->
+                            <!-- routing index.js-ben megoldva, át kellett rendezni a routing sorrendet (kommentezve) -->
+                            <td>
+                                    <a href="/routes/<%= tura._id %>"><%= tura.cim %></a>
+                            </td>
+                            <td>
+                                    <%= tura.tav %>
+                            </td>
+                            <td>
+                                    <%= tura.rovidLeiras %>
+                            </td>
+                            <td>
+                                    <%= tura.hoszabbLeiras %>
+                            </td>
+                            <td style="width:30px;white-space: nowrap">
+                                <a href="/route/<%= turazo._id %>/edit/<%= tura._id %>" class="btn btn-sm btn-primary"><i class="far fa-edit"></i></a>
+                                <a href="/route/<%= turazo._id %>/del/<%= tura._id %>" class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i></a>
+                            </td>
+                        </tr>
+                    <% }); %>
                 </table>
                 <br />
                 <a href="/route/001/new" class="btn btn-block btn-primary">Új útvonal hozzáadása</a>
