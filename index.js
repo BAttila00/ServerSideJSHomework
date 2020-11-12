@@ -1,4 +1,7 @@
 /*
+
+//"hosszabbLeiras"-t elírtam itt, ezért nem jött létre az adatbben... helyesen az adatmodel szerint(tura.js-ben): "hoszabbLeiras"
+
 const TuraModel = require('./models/tura');
 const TurazoModel = require('./models/turazo');
 
