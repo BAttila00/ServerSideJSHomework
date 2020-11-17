@@ -9,8 +9,11 @@ module.exports = function (objectrepository) {
         }
 
         if (req.body.password === 'asdfgh') {
-            // TODO: create new session
-            return res.redirect('/athletesList');
+            req.session.belepve = true;
+            return req.session.save((err) => {
+
+                return res.redirect('/athletesList');
+            })
         }
 
         res.locals.error = 'Hibás jelszó!';
