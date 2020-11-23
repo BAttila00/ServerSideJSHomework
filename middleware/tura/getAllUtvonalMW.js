@@ -3,7 +3,17 @@
 const requireOption = require('../requireOption');
 
 module.exports = function (objectrepository) {
+
+    const TuraModel = requireOption(objectrepository, 'TuraModel');
+
     return function (req, res, next) {
-        next();
+        TuraModel.find((err, turak) => {
+            if (err) {
+                return next(err);
+            }
+
+            res.locals.turak = turak;
+            return next();
+        });
     };
 };

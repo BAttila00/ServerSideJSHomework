@@ -9,7 +9,7 @@ module.exports = function (objectrepository) {
     return function (req, res, next) {
         TuraModel.findOne(
             {
-                _id: req.params.routeID
+                _id: req.params.routeID         //az url-ben megadott id, és innen tudjuk: app.get('/routes/:routeID'
             },
             (err, tura) => {
                 if (err || !tura) {
