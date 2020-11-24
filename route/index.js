@@ -38,6 +38,8 @@ app.get('/lostPassword',
     renderMW(objRepo, 'elfelejtettJelszo'));
 
 app.use('/athletes',
+    getAllUtvonalMW(objRepo),
+    getTurazokMW(objRepo),
     getTopTurazokMW(objRepo),
     checkPassMW(objRepo),
     renderMW(objRepo, 'turazok'));

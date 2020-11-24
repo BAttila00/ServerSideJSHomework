@@ -13,13 +13,13 @@
                 Megtett kilóméter
               </th>
             </tr>
-        <% turazok.forEach(function(turazo){ %>
+        <% turazoOsszeitettTavolsaga.forEach(function(turazo){ %>
           <tr>
               <td>
-                  <%= turazo.nev %>
+                  <%= (typeof turazo === 'undefined') ? '' : turazo.nev %>
               </td>
               <td>
-                  <%= turazo.eletkor %>
+                  <%= (typeof turazo === 'undefined') ? '' : turazo.tav %>
               </td>
             </tr>
         <% }); %>
