@@ -20,40 +20,22 @@
                                     Hoszabb leírás
                                 </th>
                             </tr>
-                            <tr>
-                                <!-- todo: itt még valami nem stimmel, nem navigál át a  részletező nézetre -->
-                                <td>
-                                    <a href="/routes/001">Rám-szakadék</a>
-                                </td>
-                                <td>
-                                    15
-                                </td>
-                                <td>
-                                    Gyalogtúra
-                                </td>
-                                <td>
-                                        Mauris pharetra et ultrices neque ornare aenean euismod elementum nisi. 
-                                        Imperdiet nulla malesuada pellentesque elit eget gravida cum. 
-                                        Eget mauris pharetra et ultrices neque ornare aenean euismod. 
-                                        Egestas egestas fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate. 
-                                        Non curabitur gravida arcu ac tortor dignissim convallis aenean.
-                                </td>
-                            </tr>
-                            <tr>
-                              <!-- todo: itt még valami nem stimmel, nem navigál át a  részletező nézetre -->
-                                <td>
-                                    <a href="/routes/002">Pilis kör</a>
-                                </td>
-                                <td>
-                                    120
-                                </td>
-                                <td>
-                                    Kerékpár
-                                </td>
-                                <td>
-                                    Ultrices neque ornare aenean euismod elementum nisi quis. Pellentesque pulvinar pellentesque habitant morbi tristique senectus et.
-                                </td>
-                            </tr>
+                            <% turak.forEach(function(tura){ %>
+                                <tr>
+                                    <td>
+                                            <a href="/routes/<%= tura._id %>"><%= tura.cim %></a>
+                                    </td>
+                                    <td>
+                                            <%= tura.tav %>
+                                    </td>
+                                    <td>
+                                            <%= tura.rovidLeiras %>
+                                    </td>
+                                    <td>
+                                            <%= tura.hoszabbLeiras %>
+                                    </td>
+                                </tr>
+                            <% }); %>
                         </table>
                     </div>
                 </div>

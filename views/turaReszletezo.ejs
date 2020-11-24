@@ -15,33 +15,19 @@
                 <div class="col-md-8">
                     <h3>Cím</h3>
                     <p>
-                        Rám-szakadék
+                        <%= (typeof tura === 'undefined') ? '' : tura.cim %>
                     </p>
                     <h3>Táv(km)</h3>
                     <p>
-                        15
+                        <%= (typeof tura === 'undefined') ? '' : tura.tav %>
                     </p>
                     <h3>Rövid leírás</h3>
                     <p>
-                        Mauris pharetra et ultrices neque ornare aenean euismod elementum nisi.
-                        Imperdiet nulla malesuada pellentesque elit eget gravida cum.
-                        Eget mauris pharetra et ultrices neque ornare aenean euismod.
-                        Egestas egestas fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate.
-                        Non curabitur gravida arcu ac tortor dignissim convallis aenean.
+                        <%= (typeof tura === 'undefined') ? '' : tura.rovidLeiras %>
                     </p>
                     <h3>Hosszú leírás</h3>
                     <p>
-
-                        Mauris nisi ligula, finibus scelerisque tempus porta, elementum ut neque. Etiam porttitor sem
-                        diam, eu malesuada nibh tincidunt quis. Vestibulum ante ipsum primis in faucibus orci luctus et
-                        ultrices posuere cubilia.
-                        Mauris pharetra et ultrices neque ornare aenean euismod elementum nisi.
-                        Imperdiet nulla malesuada pellentesque elit eget gravida cum.
-                        Eget mauris pharetra et ultrices neque ornare aenean euismod.
-                        Egestas egestas fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate.
-                        Non curabitur gravida arcu ac tortor dignissim convallis aenean.
-                        Mauris nisi ligula, finibus scelerisque tempus porta, elementum ut neque. Etiam porttitor sem
-                        diam, eu malesuada nibh tincidunt quis.
+                        <%= (typeof tura === 'undefined') ? '' : tura.hoszabbLeiras %>
                     </p>
                     <h3>Útvonal fájl</h3>
                     <a href="#">Útvonal</a>
