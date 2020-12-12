@@ -26,12 +26,6 @@
                         </p>
                         <textarea cols="100" rows="7" id="longdescr" name="longdescr"><%= (typeof tura === 'undefined') ? '' : tura.hoszabbLeiras %></textarea>
                     </div>
-                    <div class="form-group">
-                        <p>
-                            <label for="filename">Útvonal feltöltés (gpx./kml./kmz.)</label>
-                        </p>
-                        <input type="file" id="filename" name="filename">
-                    </div>
                     <input type="submit" class="btn btn-primary" value="Mentés"/>
                     <!-- <a class="btn btn-primary" href="/route/001">Mentés</a> -->
                     <a class="btn btn-link" href="/route/<%= turazo._id %>">Mégsem</a>
