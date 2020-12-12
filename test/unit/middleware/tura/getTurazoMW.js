@@ -4,7 +4,7 @@ var getTurazoMW = require('../../../../middleware/turazo/getTurazoMW');
 describe('getTurazoMW middleware ', function () {
 
     //a test scene
-    it('should "routeID alapján betölt egy túrát az adatbázisból és res.locals.tura-ra teszi"', function (done) {
+    it('should "routeID alapján betölt egy túrázót az adatbázisból és res.locals.turazo-ra teszi"', function (done) {
         //mocking
         const mw = getTurazoMW({
             TurazoModel: {
@@ -69,7 +69,7 @@ describe('getTurazoMW middleware ', function () {
 
 
 
-    it('should call next when no trip is found in database', function (done) {
+    it('should call next when no traveler is found in database', function (done) {
         //mocking
         const mw = getTurazoMW({
             TurazoModel: {
